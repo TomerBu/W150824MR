@@ -79,16 +79,4 @@ as_set = set(given_list) # {2, 3, 4, 7, 8, 10}
 
 
 # remove duplicates from list:
-list(set(given_list)) # [2, 3, 4, 7, 8, 10]
-
-
-
-
-# Display results
-print("🔹 Common technologies:", common_features)
-print("🔹 All technologies combined:", all_features)
-print("🔹 Technologies only in Country A:", only_A)
-print("🔹 Technologies only in Country B:", only_B)
-print("🔹 Unique technologies (not shared):", unique_features)
-print("🔹 Does A include all of B?", A_includes_B)
-print("🔹 Does B include all of A?", B_includes_A)
+lst = list(set(given_list)) # [2, 3, 4, 7, 8, 10]
