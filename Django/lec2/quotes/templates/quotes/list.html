@@ -1,0 +1,28 @@
+{% extends "quotes/base.html" %}
+
+{% block title %}
+    Quotes List
+{% endblock title %}
+
+{% block content %}
+    <table class="table table-striped">
+        <tr>
+            <th>Quote</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for quote in quotes %}
+            <tr>
+                <td>{{ quote.quote }}</td>
+                <td>{{ quote.author }}</td>
+                <td>{{ quote.year }}</td>
+                <td>
+                    Edit | Delete
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}
+    

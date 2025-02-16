@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        {% block title %}
+            Quotes
+        {% endblock title %}
+    </title>
+    {% block bootstrap %}
+      {% load bootstrap_icons %}
+      {% load bootstrap5 %}
+      {% bootstrap_css %}
+      {% bootstrap_javascript %}
+    {% endblock %}
+  </head>
+  <body>
+        <header>Site Header</header>
+        <nav>Site Navigation</nav>
+        <main>
+            {% block content %}{% endblock content %}
+        </main>
+        <footer>Site Footer</footer>
+  </body>
+</html>
