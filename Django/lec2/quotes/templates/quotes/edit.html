@@ -1,15 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {%load bootstrap_icons%}
-    <title>Document</title>
-    {% load bootstrap5 %}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-</head>
-<body>
- 
-</body>
-</html>
+{% extends 'quotes/base.html' %}
+
+{% block title %}
+  Edit Quote
+{% endblock %}
+
+{% block content %}
+  <h1>Edit Quote</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    <label for="author">Author</label>
+    <input type="text" name="author" id="author" value="{{ quote.author }}" />
+    {% if errors.author %}
+      <p class="text text-danger">{{ errors.author }}</p>
+    {% endif %}
+    <label for="quote">quote</label>
+    <input type="text" name="quote" id="quote" value="{{ quote.quote }}" />
+
+    <label for="year">year</label>
+    <input type="number" name="year" id="year" value="{{ quote.year }}" />
+
+    <input type="hidden" name="id" value="{{ quote.id }}" />
+    <input type="submit" value="Save" />
+  </form>
+{% endblock %}

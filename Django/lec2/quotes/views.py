@@ -15,11 +15,21 @@ def quotes_list(request:HttpRequest):
 
 
 def edit_quote(request:HttpRequest, id:int):
+    quote = Quote.objects.get(id=id)
+    errors = {}
     if request.method == 'GET':
-        quote = Quote.objects.get(id=id)
         return render(request, 'quotes/edit.html', {'quote': quote})
     else:
-        pass
+        author = request.POST.get('author')
+        if not author:
+            errors['author'] = 'No Author'
+            return render(request, 'quotes/edit.html', {'quote': quote, 'errors': errors})
+        quote.author = author
+        quote.quote = request.POST.get('quote', quote.quote)
+        quote.year = request.POST.get('year', quote.year)
+
+        quote.save()
+        
 
 def delete_quote(request:HttpRequest, id:int):
     quote = Quote.objects.get(id=id)

@@ -19,7 +19,12 @@
                 <td>{{ quote.author }}</td>
                 <td>{{ quote.year }}</td>
                 <td>
-                    Edit | Delete
+                    <a href="{% url 'edit_quote' quote.id %}">
+                        Edit
+                    </a>
+                    <a href="{% url 'delete_quote' quote.id %}">
+                        Delete
+                    </a>
                 </td>
             </tr>
         {% endfor %}
