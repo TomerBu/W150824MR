@@ -1,11 +1,34 @@
 from rest_framework.generics import GenericAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.mixins import *
-from .serializers import PostSerializer
-from .models import *
-
+from .serializers import PostSerializer, CommentSerializer
+from .models import Comment, Post
 from rest_framework.reverse import reverse
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.viewsets import ViewSet, ModelViewSet
+
+class CommentsViewSet(ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
+
+
+class DemoViewSet(ViewSet):
+    """
+    Example empty viewset demonstrating the standard actions
+    """
+    def list(self, request):
+       # posts = PostSerializer(Post.objects.all())
+        return Response('list')
+    def create(self, request):
+        return Response('create')
+    def retrieve(self, request, pk=None):
+        return Response('retrieve')
+    def update(self, request, pk=None):
+        return Response('update')
+    def partial_update(self, request, pk=None):
+        return Response('partial_update')
+    def destroy(self, request, pk=None):
+        return Response('destroy')
 class APIMap(APIView):
    """My Blog Map"""
    def get(self, request):
