@@ -115,6 +115,22 @@
         "documentation": {}
     },
     {
+        "label": "template",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
+        "label": "template",
+        "importPath": "django",
+        "description": "django",
+        "isExtraImport": true,
+        "detail": "django",
+        "documentation": {}
+    },
+    {
         "label": "admin",
         "importPath": "django.contrib",
         "description": "django.contrib",
@@ -211,6 +227,22 @@
         "documentation": {}
     },
     {
+        "label": "TagListSerializerField",
+        "importPath": "taggit.serializers",
+        "description": "taggit.serializers",
+        "isExtraImport": true,
+        "detail": "taggit.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "TaggitSerializer",
+        "importPath": "taggit.serializers",
+        "description": "taggit.serializers",
+        "isExtraImport": true,
+        "detail": "taggit.serializers",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -275,86 +307,6 @@
         "documentation": {}
     },
     {
-        "label": "GenericAPIView",
-        "importPath": "rest_framework.generics",
-        "description": "rest_framework.generics",
-        "isExtraImport": true,
-        "detail": "rest_framework.generics",
-        "documentation": {}
-    },
-    {
-        "label": "ListCreateAPIView",
-        "importPath": "rest_framework.generics",
-        "description": "rest_framework.generics",
-        "isExtraImport": true,
-        "detail": "rest_framework.generics",
-        "documentation": {}
-    },
-    {
-        "label": "RetrieveUpdateDestroyAPIView",
-        "importPath": "rest_framework.generics",
-        "description": "rest_framework.generics",
-        "isExtraImport": true,
-        "detail": "rest_framework.generics",
-        "documentation": {}
-    },
-    {
-        "label": "*",
-        "importPath": "rest_framework.mixins",
-        "description": "rest_framework.mixins",
-        "isExtraImport": true,
-        "detail": "rest_framework.mixins",
-        "documentation": {}
-    },
-    {
-        "label": "reverse",
-        "importPath": "rest_framework.reverse",
-        "description": "rest_framework.reverse",
-        "isExtraImport": true,
-        "detail": "rest_framework.reverse",
-        "documentation": {}
-    },
-    {
-        "label": "APIView",
-        "importPath": "rest_framework.views",
-        "description": "rest_framework.views",
-        "isExtraImport": true,
-        "detail": "rest_framework.views",
-        "documentation": {}
-    },
-    {
-        "label": "APIView",
-        "importPath": "rest_framework.views",
-        "description": "rest_framework.views",
-        "isExtraImport": true,
-        "detail": "rest_framework.views",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
-        "isExtraImport": true,
-        "detail": "rest_framework.response",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
-        "isExtraImport": true,
-        "detail": "rest_framework.response",
-        "documentation": {}
-    },
-    {
-        "label": "ViewSet",
-        "importPath": "rest_framework.viewsets",
-        "description": "rest_framework.viewsets",
-        "isExtraImport": true,
-        "detail": "rest_framework.viewsets",
-        "documentation": {}
-    },
-    {
         "label": "ModelViewSet",
         "importPath": "rest_framework.viewsets",
         "description": "rest_framework.viewsets",
@@ -371,11 +323,27 @@
         "documentation": {}
     },
     {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
         "label": "Request",
         "importPath": "rest_framework.request",
         "description": "rest_framework.request",
         "isExtraImport": true,
         "detail": "rest_framework.request",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
@@ -427,6 +395,24 @@
         "description": "blog.migrations.0001_initial",
         "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n        ('taggit', '0006_rename_taggeditem_content_type_object_id_taggit_tagg_content_8fc721_idx'),\n        migrations.swappable_dependency(settings.AUTH_USER_MODEL),\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='UserProfile',\n            fields=[",
         "detail": "blog.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
+        "label": "join_space",
+        "kind": 2,
+        "importPath": "blog.templatetags.custom_filters",
+        "description": "blog.templatetags.custom_filters",
+        "peekOfCode": "def join_space(value):\n    if isinstance(value, (list, tuple)):\n        return \" \".join(value)\n    return value\n# {% tags|join_space %}",
+        "detail": "blog.templatetags.custom_filters",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 5,
+        "importPath": "blog.templatetags.custom_filters",
+        "description": "blog.templatetags.custom_filters",
+        "peekOfCode": "register = template.Library()\n# this function accepts a list/tuple\n# and returns space joined str\n# [\"django\", \"pyhton\"] => \"django python\"\n@register.filter\ndef join_space(value):\n    if isinstance(value, (list, tuple)):\n        return \" \".join(value)\n    return value\n# {% tags|join_space %}",
+        "detail": "blog.templatetags.custom_filters",
         "documentation": {}
     },
     {
@@ -497,7 +483,7 @@
         "kind": 6,
         "importPath": "blog.serializers",
         "description": "blog.serializers",
-        "peekOfCode": "class PostSerializer(ModelSerializer):\n    class Meta:\n        model = Post\n        fields = '__all__'\nclass CommentSerializer(ModelSerializer):\n    class Meta:\n        model = Comment\n        fields = '__all__'\nclass UserProfileSerializer(ModelSerializer):\n    class Meta:",
+        "peekOfCode": "class PostSerializer(TaggitSerializer, ModelSerializer):\n    tags = TagListSerializerField()\n    class Meta:\n        model = Post\n        fields = '__all__'\nclass CommentSerializer(ModelSerializer):\n    class Meta:\n        model = Comment\n        fields = '__all__'\nclass UserProfileSerializer(ModelSerializer):",
         "detail": "blog.serializers",
         "documentation": {}
     },
@@ -533,7 +519,7 @@
         "kind": 5,
         "importPath": "blog.urls",
         "description": "blog.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register('demos', DemoViewSet, basename='demo')\nrouter.register('comments', CommentsViewSet, basename='comment')\nurlpatterns = [\n    path('router/', include(router.urls)),\n    path('', APIMap.as_view(), name='map'),   \n    path('posts/', PostsView2.as_view(), name='posts'),   \n    path('posts/<int:pk>', PostActions2.as_view(), name='post-actions'),   \n]",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register('comments', CommentsViewSet, basename='comment')\nrouter.register('posts', PostsViewSet, basename='posts')\nrouter.register('user-profile', UserProfileViewSet, basename='user-profile')\nrouter.register('likes', LikesViewSet, basename='likes')\nurlpatterns = [\n    path('', include(router.urls)),\n]",
         "detail": "blog.urls",
         "documentation": {}
     },
@@ -542,7 +528,7 @@
         "kind": 5,
         "importPath": "blog.urls",
         "description": "blog.urls",
-        "peekOfCode": "urlpatterns = [\n    path('router/', include(router.urls)),\n    path('', APIMap.as_view(), name='map'),   \n    path('posts/', PostsView2.as_view(), name='posts'),   \n    path('posts/<int:pk>', PostActions2.as_view(), name='post-actions'),   \n]",
+        "peekOfCode": "urlpatterns = [\n    path('', include(router.urls)),\n]",
         "detail": "blog.urls",
         "documentation": {}
     },
@@ -551,61 +537,34 @@
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class CommentsViewSet(ModelViewSet):\n    queryset = Comment.objects.all()\n    serializer_class = CommentSerializer\nclass DemoViewSet(ViewSet):\n    \"\"\"\n    Example empty viewset demonstrating the standard actions\n    \"\"\"\n    def list(self, request):\n       # posts = PostSerializer(Post.objects.all())\n        return Response('list')",
+        "peekOfCode": "class CommentsViewSet(ModelViewSet):\n    queryset = Comment.objects.all()\n    serializer_class = CommentSerializer\nclass PostsViewSet(ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\nclass UserProfileViewSet(ModelViewSet):\n    queryset = UserProfile.objects.all()\n    serializer_class = UserProfileSerializer\nclass LikesViewSet(ModelViewSet):",
         "detail": "blog.views",
         "documentation": {}
     },
     {
-        "label": "DemoViewSet",
+        "label": "PostsViewSet",
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class DemoViewSet(ViewSet):\n    \"\"\"\n    Example empty viewset demonstrating the standard actions\n    \"\"\"\n    def list(self, request):\n       # posts = PostSerializer(Post.objects.all())\n        return Response('list')\n    def create(self, request):\n        return Response('create')\n    def retrieve(self, request, pk=None):",
+        "peekOfCode": "class PostsViewSet(ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\nclass UserProfileViewSet(ModelViewSet):\n    queryset = UserProfile.objects.all()\n    serializer_class = UserProfileSerializer\nclass LikesViewSet(ModelViewSet):\n    queryset = PostUserLikes.objects.all()\n    serializer_class = PostUserLikesSerializer\n# class DemoViewSet(ViewSet):",
         "detail": "blog.views",
         "documentation": {}
     },
     {
-        "label": "APIMap",
+        "label": "UserProfileViewSet",
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class APIMap(APIView):\n   \"\"\"My Blog Map\"\"\"\n   def get(self, request):\n    return Response({\n        \"posts\": reverse('posts', request=request),\n        \"post-details\":  reverse('post-actions',kwargs = {\"pk\":1}, request=request),\n    })\nclass PostsView2(ListCreateAPIView):\n    serializer_class = PostSerializer\n    queryset = Post.objects.all()",
+        "peekOfCode": "class UserProfileViewSet(ModelViewSet):\n    queryset = UserProfile.objects.all()\n    serializer_class = UserProfileSerializer\nclass LikesViewSet(ModelViewSet):\n    queryset = PostUserLikes.objects.all()\n    serializer_class = PostUserLikesSerializer\n# class DemoViewSet(ViewSet):\n#     \"\"\"\n#     Example empty viewset demonstrating the standard actions\n#     \"\"\"",
         "detail": "blog.views",
         "documentation": {}
     },
     {
-        "label": "PostsView2",
+        "label": "LikesViewSet",
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class PostsView2(ListCreateAPIView):\n    serializer_class = PostSerializer\n    queryset = Post.objects.all()\nclass PostActions2(RetrieveUpdateDestroyAPIView):\n    serializer_class = PostSerializer\n    queryset = Post.objects.all()\nclass PostsView(GenericAPIView, ListModelMixin ,CreateModelMixin):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\n    def get(self, request):",
-        "detail": "blog.views",
-        "documentation": {}
-    },
-    {
-        "label": "PostActions2",
-        "kind": 6,
-        "importPath": "blog.views",
-        "description": "blog.views",
-        "peekOfCode": "class PostActions2(RetrieveUpdateDestroyAPIView):\n    serializer_class = PostSerializer\n    queryset = Post.objects.all()\nclass PostsView(GenericAPIView, ListModelMixin ,CreateModelMixin):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\n    def get(self, request):\n        # use ListModelMixin's list method\n        return self.list(request)\n    def post(self, request):",
-        "detail": "blog.views",
-        "documentation": {}
-    },
-    {
-        "label": "PostsView",
-        "kind": 6,
-        "importPath": "blog.views",
-        "description": "blog.views",
-        "peekOfCode": "class PostsView(GenericAPIView, ListModelMixin ,CreateModelMixin):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\n    def get(self, request):\n        # use ListModelMixin's list method\n        return self.list(request)\n    def post(self, request):\n        # use CreateModelMixin's create method\n        return self.create(request)\nclass PostActions(GenericAPIView, UpdateModelMixin, DestroyModelMixin, RetrieveModelMixin):",
-        "detail": "blog.views",
-        "documentation": {}
-    },
-    {
-        "label": "PostActions",
-        "kind": 6,
-        "importPath": "blog.views",
-        "description": "blog.views",
-        "peekOfCode": "class PostActions(GenericAPIView, UpdateModelMixin, DestroyModelMixin, RetrieveModelMixin):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\n    def get(self, request, pk):\n        return self.retrieve(request, pk)\n    def put(self, request, pk):\n        return self.update(request, pk)\n    def delete(self, request, pk):\n        return self.destroy(request, pk)",
+        "peekOfCode": "class LikesViewSet(ModelViewSet):\n    queryset = PostUserLikes.objects.all()\n    serializer_class = PostUserLikesSerializer\n# class DemoViewSet(ViewSet):\n#     \"\"\"\n#     Example empty viewset demonstrating the standard actions\n#     \"\"\"\n#     def list(self, request):\n#        # posts = PostSerializer(Post.objects.all())\n#         return Response('list')",
         "detail": "blog.views",
         "documentation": {}
     },
@@ -740,7 +699,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "ROOT_URLCONF = 'lec4.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
+        "peekOfCode": "ROOT_URLCONF = 'lec4.urls'\n# a file/dir module\nimport os\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\n            os.path.join(BASE_DIR, 'templates'),\n            os.path.join(BASE_DIR, 'templatetags')\n        ],",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -749,7 +708,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\n            os.path.join(BASE_DIR, 'templates'),\n            os.path.join(BASE_DIR, 'templatetags')\n        ],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -758,7 +717,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'lec4.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation",
+        "peekOfCode": "WSGI_APPLICATION = 'lec4.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'drf_blog',\n        'USER': 'postgres',\n        'PASSWORD': '123456',\n        'HOST': 'localhost',",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -767,7 +726,25 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.sqlite3',\n        'NAME': BASE_DIR / 'db.sqlite3',\n    }\n}\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'drf_blog',\n        'USER': 'postgres',\n        'PASSWORD': '123456',\n        'HOST': 'localhost',\n        'PORT': '5432',\n    }\n}",
+        "detail": "lec4.settings",
+        "documentation": {}
+    },
+    {
+        "label": "REST_FRAMEWORK",
+        "kind": 5,
+        "importPath": "lec4.settings",
+        "description": "lec4.settings",
+        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_RENDERER_CLASSES': [\n        'rest_framework.renderers.JSONRenderer',\n        'rest_framework.renderers.BrowsableAPIRenderer',\n    ],\n}\nTAGGIT_CASE_INSENSITIVE = True\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [",
+        "detail": "lec4.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TAGGIT_CASE_INSENSITIVE",
+        "kind": 5,
+        "importPath": "lec4.settings",
+        "description": "lec4.settings",
+        "peekOfCode": "TAGGIT_CASE_INSENSITIVE = True\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {\n        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',\n    },\n    {\n        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',\n    },",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -839,7 +816,7 @@
         "kind": 5,
         "importPath": "lec4.urls",
         "description": "lec4.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/', include('hw.urls')),\n    path('api/blog/', include('blog.urls')),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/v1/', include('blog.urls')),\n]\n# /api/v2/posts",
         "detail": "lec4.urls",
         "documentation": {}
     },
@@ -850,6 +827,24 @@
         "description": "lec4.wsgi",
         "peekOfCode": "application = get_wsgi_application()",
         "detail": "lec4.wsgi",
+        "documentation": {}
+    },
+    {
+        "label": "join_space",
+        "kind": 2,
+        "importPath": "templatetags.custom_filters",
+        "description": "templatetags.custom_filters",
+        "peekOfCode": "def join_space(value):\n    if isinstance(value, (list, tuple)):\n        return \" \".join(value)\n    return value\n# usage:\n# include templatetags in settings.py\n# {% load custom_filters %}\n# {% tags|join_space %}",
+        "detail": "templatetags.custom_filters",
+        "documentation": {}
+    },
+    {
+        "label": "register",
+        "kind": 5,
+        "importPath": "templatetags.custom_filters",
+        "description": "templatetags.custom_filters",
+        "peekOfCode": "register = template.Library()\n@register.filter\ndef join_space(value):\n    if isinstance(value, (list, tuple)):\n        return \" \".join(value)\n    return value\n# usage:\n# include templatetags in settings.py\n# {% load custom_filters %}\n# {% tags|join_space %}",
+        "detail": "templatetags.custom_filters",
         "documentation": {}
     },
     {

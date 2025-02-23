@@ -1,7 +1,11 @@
 from .models import Post, Comment, UserProfile, PostUserLikes
 from rest_framework.serializers import ModelSerializer
+from taggit.serializers import (TagListSerializerField,
+                                TaggitSerializer)
 
-class PostSerializer(ModelSerializer):
+# show tags in posts:
+class PostSerializer(TaggitSerializer, ModelSerializer):
+    tags = TagListSerializerField()
     class Meta:
         model = Post
         fields = '__all__'
