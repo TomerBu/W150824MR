@@ -315,6 +315,22 @@
         "documentation": {}
     },
     {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
         "label": "FunFact",
         "importPath": "hw.models",
         "description": "hw.models",
@@ -336,14 +352,6 @@
         "description": "rest_framework.request",
         "isExtraImport": true,
         "detail": "rest_framework.request",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
-        "isExtraImport": true,
-        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
@@ -546,7 +554,7 @@
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class CommentsViewSet(ModelViewSet):\n    queryset = Comment.objects.all()\n    serializer_class = CommentSerializer\nclass PostsViewSet(ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\nclass UserProfileViewSet(ModelViewSet):\n    queryset = UserProfile.objects.all()\n    serializer_class = UserProfileSerializer\nclass LikesViewSet(ModelViewSet):",
+        "peekOfCode": "class CommentsViewSet(ModelViewSet):\n    queryset = Comment.objects.all()\n    serializer_class = CommentSerializer\n    def create(self, request, *args, **kwargs):\n        data = request.data\n        reply_to = data.get('reply_to')\n        post_id = data.get('post')\n        if reply_to:\n            replied = Comment.objects.get(id=reply_to)\n            print(replied)",
         "detail": "blog.views",
         "documentation": {}
     },
