@@ -479,11 +479,20 @@
         "documentation": {}
     },
     {
+        "label": "TagField",
+        "kind": 6,
+        "importPath": "blog.serializers",
+        "description": "blog.serializers",
+        "peekOfCode": "class TagField(TagListSerializerField):\n    def to_internal_value(self, value):\n        request = self.context.get('request')\n        is_browsable_api = (\n            request\n            and hasattr(request, 'accepted_renderer')\n            and request.accepted_renderer.format == 'api'\n        )\n        if (\n            is_browsable_api",
+        "detail": "blog.serializers",
+        "documentation": {}
+    },
+    {
         "label": "PostSerializer",
         "kind": 6,
         "importPath": "blog.serializers",
         "description": "blog.serializers",
-        "peekOfCode": "class PostSerializer(TaggitSerializer, ModelSerializer):\n    tags = TagListSerializerField()\n    class Meta:\n        model = Post\n        fields = '__all__'\nclass CommentSerializer(ModelSerializer):\n    class Meta:\n        model = Comment\n        fields = '__all__'\nclass UserProfileSerializer(ModelSerializer):",
+        "peekOfCode": "class PostSerializer(TaggitSerializer, ModelSerializer):\n    tags = TagField(style={'base_template': 'textarea.html'})  \n    class Meta:\n        model = Post\n        fields = '__all__'\nclass CommentSerializer(ModelSerializer):\n    class Meta:\n        model = Comment\n        fields = '__all__'\nclass UserProfileSerializer(ModelSerializer):",
         "detail": "blog.serializers",
         "documentation": {}
     },
