@@ -323,6 +323,22 @@
         "documentation": {}
     },
     {
+        "label": "views",
+        "importPath": "rest_framework.authtoken",
+        "description": "rest_framework.authtoken",
+        "isExtraImport": true,
+        "detail": "rest_framework.authtoken",
+        "documentation": {}
+    },
+    {
+        "label": "views",
+        "importPath": "rest_framework.authtoken",
+        "description": "rest_framework.authtoken",
+        "isExtraImport": true,
+        "detail": "rest_framework.authtoken",
+        "documentation": {}
+    },
+    {
         "label": "DefaultRouter",
         "importPath": "rest_framework.routers",
         "description": "rest_framework.routers",
@@ -632,7 +648,7 @@
         "kind": 5,
         "importPath": "blog.urls",
         "description": "blog.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register('comments', CommentsViewSet, basename='comment')\nrouter.register('posts', PostsViewSet, basename='posts')\nrouter.register('user-profile', UserProfileViewSet, basename='user-profile')\nrouter.register('likes', LikesViewSet, basename='likes')\nurlpatterns = [\n    path('', include(router.urls)),\n    path('api-auth/', include('rest_framework.urls'))\n]",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register('comments', CommentsViewSet, basename='comment')\nrouter.register('posts', PostsViewSet, basename='posts')\nrouter.register('user-profile', UserProfileViewSet, basename='user-profile')\nrouter.register('likes', LikesViewSet, basename='likes')\nfrom rest_framework.authtoken import views as auth_views\nurlpatterns = [\n    path('', include(router.urls)),\n    path('api-auth/', include('rest_framework.urls')),\n    path('login/', auth_views.obtain_auth_token)",
         "detail": "blog.urls",
         "documentation": {}
     },
@@ -641,7 +657,7 @@
         "kind": 5,
         "importPath": "blog.urls",
         "description": "blog.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', include(router.urls)),\n    path('api-auth/', include('rest_framework.urls'))\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', include(router.urls)),\n    path('api-auth/', include('rest_framework.urls')),\n    path('login/', auth_views.obtain_auth_token)\n]",
         "detail": "blog.urls",
         "documentation": {}
     },
