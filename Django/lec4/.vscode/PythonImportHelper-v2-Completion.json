@@ -235,19 +235,11 @@
         "documentation": {}
     },
     {
-        "label": "ModelSerializer",
-        "importPath": "rest_framework.serializers",
-        "description": "rest_framework.serializers",
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
         "isExtraImport": true,
-        "detail": "rest_framework.serializers",
-        "documentation": {}
-    },
-    {
-        "label": "ModelSerializer",
-        "importPath": "rest_framework.serializers",
-        "description": "rest_framework.serializers",
-        "isExtraImport": true,
-        "detail": "rest_framework.serializers",
+        "detail": "django.contrib.auth.models",
         "documentation": {}
     },
     {
@@ -264,6 +256,38 @@
         "description": "taggit.serializers",
         "isExtraImport": true,
         "detail": "taggit.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "HiddenField",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "SerializerMethodField",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ModelSerializer",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "ModelSerializer",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
         "documentation": {}
     },
     {
@@ -599,6 +623,15 @@
         "documentation": {}
     },
     {
+        "label": "UserSerializer",
+        "kind": 6,
+        "importPath": "blog.serializers",
+        "description": "blog.serializers",
+        "peekOfCode": "class UserSerializer(ModelSerializer):\n    class Meta:\n        model = User\n        fields = ['id', 'username', 'email', 'password']\n        extra_kwargs = {\n            'password': {'write_only': False, 'required': True},\n            'id': {'read_only': True},\n            'email': {'required': True},\n            'username': {'required': True, 'min_length':3},\n        }",
+        "detail": "blog.serializers",
+        "documentation": {}
+    },
+    {
         "label": "TagField",
         "kind": 6,
         "importPath": "blog.serializers",
@@ -608,11 +641,20 @@
         "documentation": {}
     },
     {
+        "label": "CurrentUserDefault",
+        "kind": 6,
+        "importPath": "blog.serializers",
+        "description": "blog.serializers",
+        "peekOfCode": "class CurrentUserDefault():\n    requires_context = True\n    def __call__(self, serializer_field):\n        request =  serializer_field.context['request']\n        return request.user.userprofile\nclass PostSerializer(TaggitSerializer, ModelSerializer):\n    tags = TagField(style={'base_template': 'textarea.html'})  \n    author = HiddenField(default = CurrentUserDefault())\n    author_id = SerializerMethodField()\n    class Meta:",
+        "detail": "blog.serializers",
+        "documentation": {}
+    },
+    {
         "label": "PostSerializer",
         "kind": 6,
         "importPath": "blog.serializers",
         "description": "blog.serializers",
-        "peekOfCode": "class PostSerializer(TaggitSerializer, ModelSerializer):\n    tags = TagField(style={'base_template': 'textarea.html'})  \n    class Meta:\n        model = Post\n        fields = '__all__'\nclass CommentSerializer(ModelSerializer):\n    class Meta:\n        model = Comment\n        fields = '__all__'\nclass UserProfileSerializer(ModelSerializer):",
+        "peekOfCode": "class PostSerializer(TaggitSerializer, ModelSerializer):\n    tags = TagField(style={'base_template': 'textarea.html'})  \n    author = HiddenField(default = CurrentUserDefault())\n    author_id = SerializerMethodField()\n    class Meta:\n        model = Post\n        fields = '__all__'\n    def get_author_id(self, obj):\n        return obj.author.id\nclass CommentSerializer(ModelSerializer):",
         "detail": "blog.serializers",
         "documentation": {}
     },
@@ -621,7 +663,7 @@
         "kind": 6,
         "importPath": "blog.serializers",
         "description": "blog.serializers",
-        "peekOfCode": "class CommentSerializer(ModelSerializer):\n    class Meta:\n        model = Comment\n        fields = '__all__'\nclass UserProfileSerializer(ModelSerializer):\n    class Meta:\n        model = UserProfile\n        fields = '__all__'\nclass PostUserLikesSerializer(ModelSerializer):\n    class Meta:",
+        "peekOfCode": "class CommentSerializer(ModelSerializer):\n    author = HiddenField(default = CurrentUserDefault())\n    author_id = SerializerMethodField()\n    class Meta:\n        model = Comment\n        fields = '__all__'\n    def get_author_id(self, obj):\n        return obj.author.id\nclass UserProfileSerializer(ModelSerializer):\n    class Meta:",
         "detail": "blog.serializers",
         "documentation": {}
     },
@@ -648,7 +690,7 @@
         "kind": 5,
         "importPath": "blog.urls",
         "description": "blog.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register('comments', CommentsViewSet, basename='comment')\nrouter.register('posts', PostsViewSet, basename='posts')\nrouter.register('user-profile', UserProfileViewSet, basename='user-profile')\nrouter.register('likes', LikesViewSet, basename='likes')\nfrom rest_framework.authtoken import views as auth_views\nurlpatterns = [\n    path('', include(router.urls)),\n    path('api-auth/', include('rest_framework.urls')),\n    path('login/', auth_views.obtain_auth_token)",
+        "peekOfCode": "router = DefaultRouter()\nfrom .views import UsersViewSet\nrouter.register('auth', UsersViewSet, basename='auth')\nrouter.register('comments', CommentsViewSet, basename='comment')\nrouter.register('posts', PostsViewSet, basename='posts')\nrouter.register('user-profile', UserProfileViewSet, basename='user-profile')\nrouter.register('likes', LikesViewSet, basename='likes')\nfrom rest_framework.authtoken import views as auth_views\nurlpatterns = [\n    path('', include(router.urls)),",
         "detail": "blog.urls",
         "documentation": {}
     },
@@ -659,6 +701,15 @@
         "description": "blog.urls",
         "peekOfCode": "urlpatterns = [\n    path('', include(router.urls)),\n    path('api-auth/', include('rest_framework.urls')),\n    path('login/', auth_views.obtain_auth_token)\n]",
         "detail": "blog.urls",
+        "documentation": {}
+    },
+    {
+        "label": "UsersViewSet",
+        "kind": 6,
+        "importPath": "blog.views",
+        "description": "blog.views",
+        "peekOfCode": "class UsersViewSet(ModelViewSet):\n    queryset = User.objects.all()\n    serializer_class = UserSerializer\nclass CommentsViewSet(ModelViewSet):\n    queryset = Comment.objects.all()\n    serializer_class = CommentSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\n    def create(self, request, *args, **kwargs):\n        data = request.data\n        reply_to = data.get('reply_to')",
+        "detail": "blog.views",
         "documentation": {}
     },
     {

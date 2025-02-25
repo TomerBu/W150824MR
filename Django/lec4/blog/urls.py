@@ -5,6 +5,9 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 
+from .views import UsersViewSet
+router.register('auth', UsersViewSet, basename='auth')
+
 router.register('comments', CommentsViewSet, basename='comment')
 router.register('posts', PostsViewSet, basename='posts')
 router.register('user-profile', UserProfileViewSet, basename='user-profile')
