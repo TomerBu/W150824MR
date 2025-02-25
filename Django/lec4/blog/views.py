@@ -1,13 +1,16 @@
 from core.utils import try_parse_int
 from .serializers import *
 from .models import Comment, Post, UserProfile, PostUserLikes
-from rest_framework.viewsets import ModelViewSet
 from rest_framework.response import Response
-
+from rest_framework.viewsets import ModelViewSet
+from rest_framework.permissions import DjangoModelPermissions
+from core.permissions import IsOwnerOrModelPermissions
 
 class CommentsViewSet(ModelViewSet):
     queryset = Comment.objects.all()
     serializer_class = CommentSerializer
+    permission_classes = [IsOwnerOrModelPermissions]
+
 
     def create(self, request, *args, **kwargs):
         data = request.data
@@ -55,16 +58,20 @@ class CommentsViewSet(ModelViewSet):
 class PostsViewSet(ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
+    permission_classes = [IsOwnerOrModelPermissions]
 
 
 class UserProfileViewSet(ModelViewSet):
     queryset = UserProfile.objects.all()
     serializer_class = UserProfileSerializer
+    permission_classes = [IsOwnerOrModelPermissions]
+  
 
 
 class LikesViewSet(ModelViewSet):
     queryset = PostUserLikes.objects.all()
     serializer_class = PostUserLikesSerializer
+    permission_classes = [IsOwnerOrModelPermissions]
 # class DemoViewSet(ViewSet):
 #     """
 #     Example empty viewset demonstrating the standard actions

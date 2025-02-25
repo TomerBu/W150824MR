@@ -67,6 +67,14 @@
         "documentation": {}
     },
     {
+        "label": "settings",
+        "importPath": "django.conf",
+        "description": "django.conf",
+        "isExtraImport": true,
+        "detail": "django.conf",
+        "documentation": {}
+    },
+    {
         "label": "migrations",
         "importPath": "django.db",
         "description": "django.db",
@@ -315,6 +323,22 @@
         "documentation": {}
     },
     {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
         "label": "ModelViewSet",
         "importPath": "rest_framework.viewsets",
         "description": "rest_framework.viewsets",
@@ -323,19 +347,43 @@
         "documentation": {}
     },
     {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
+        "label": "DjangoModelPermissions",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
         "isExtraImport": true,
-        "detail": "rest_framework.response",
+        "detail": "rest_framework.permissions",
         "documentation": {}
     },
     {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
+        "label": "DjangoModelPermissions",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
         "isExtraImport": true,
-        "detail": "rest_framework.response",
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "BasePermission",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsOwnerOrModelPermissions",
+        "importPath": "core.permissions",
+        "description": "core.permissions",
+        "isExtraImport": true,
+        "detail": "core.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "permissions",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
         "documentation": {}
     },
     {
@@ -388,6 +436,30 @@
         "documentation": {}
     },
     {
+        "label": "static",
+        "importPath": "django.conf.urls.static",
+        "description": "django.conf.urls.static",
+        "isExtraImport": true,
+        "detail": "django.conf.urls.static",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "importPath": "lec4.settings",
+        "description": "lec4.settings",
+        "isExtraImport": true,
+        "detail": "lec4.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "importPath": "lec4.settings",
+        "description": "lec4.settings",
+        "isExtraImport": true,
+        "detail": "lec4.settings",
+        "documentation": {}
+    },
+    {
         "label": "get_wsgi_application",
         "importPath": "django.core.wsgi",
         "description": "django.core.wsgi",
@@ -436,7 +508,7 @@
         "kind": 6,
         "importPath": "blog.apps",
         "description": "blog.apps",
-        "peekOfCode": "class BlogConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'blog'",
+        "peekOfCode": "class BlogConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'blog'\n    # post_save\n    def perform_add_user_to_users_group(sender, instance, created, **kwargs):\n        # the import is nested inside the function\n        from django.contrib.auth.models import Group, User\n        if not created:\n            return\n        group, _ = Group.objects.get_or_create(name='users')",
         "detail": "blog.apps",
         "documentation": {}
     },
@@ -544,7 +616,7 @@
         "kind": 5,
         "importPath": "blog.urls",
         "description": "blog.urls",
-        "peekOfCode": "router = DefaultRouter()\nrouter.register('comments', CommentsViewSet, basename='comment')\nrouter.register('posts', PostsViewSet, basename='posts')\nrouter.register('user-profile', UserProfileViewSet, basename='user-profile')\nrouter.register('likes', LikesViewSet, basename='likes')\nurlpatterns = [\n    path('', include(router.urls)),\n]",
+        "peekOfCode": "router = DefaultRouter()\nrouter.register('comments', CommentsViewSet, basename='comment')\nrouter.register('posts', PostsViewSet, basename='posts')\nrouter.register('user-profile', UserProfileViewSet, basename='user-profile')\nrouter.register('likes', LikesViewSet, basename='likes')\nurlpatterns = [\n    path('', include(router.urls)),\n    path('api-auth/', include('rest_framework.urls'))\n]",
         "detail": "blog.urls",
         "documentation": {}
     },
@@ -553,7 +625,7 @@
         "kind": 5,
         "importPath": "blog.urls",
         "description": "blog.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', include(router.urls)),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', include(router.urls)),\n    path('api-auth/', include('rest_framework.urls'))\n]",
         "detail": "blog.urls",
         "documentation": {}
     },
@@ -562,7 +634,7 @@
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class CommentsViewSet(ModelViewSet):\n    queryset = Comment.objects.all()\n    serializer_class = CommentSerializer\n    def create(self, request, *args, **kwargs):\n        data = request.data\n        reply_to = data.get('reply_to')\n        post_id = try_parse_int(data.get('post'))\n        if reply_to:\n            replied = Comment.objects.get(id=reply_to)\n            print(replied)",
+        "peekOfCode": "class CommentsViewSet(ModelViewSet):\n    queryset = Comment.objects.all()\n    serializer_class = CommentSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\n    def create(self, request, *args, **kwargs):\n        data = request.data\n        reply_to = data.get('reply_to')\n        post_id = try_parse_int(data.get('post'))\n        if reply_to:\n            replied = Comment.objects.get(id=reply_to)",
         "detail": "blog.views",
         "documentation": {}
     },
@@ -571,7 +643,7 @@
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class PostsViewSet(ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\nclass UserProfileViewSet(ModelViewSet):\n    queryset = UserProfile.objects.all()\n    serializer_class = UserProfileSerializer\nclass LikesViewSet(ModelViewSet):\n    queryset = PostUserLikes.objects.all()\n    serializer_class = PostUserLikesSerializer\n# class DemoViewSet(ViewSet):",
+        "peekOfCode": "class PostsViewSet(ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\nclass UserProfileViewSet(ModelViewSet):\n    queryset = UserProfile.objects.all()\n    serializer_class = UserProfileSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\nclass LikesViewSet(ModelViewSet):\n    queryset = PostUserLikes.objects.all()",
         "detail": "blog.views",
         "documentation": {}
     },
@@ -580,7 +652,7 @@
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class UserProfileViewSet(ModelViewSet):\n    queryset = UserProfile.objects.all()\n    serializer_class = UserProfileSerializer\nclass LikesViewSet(ModelViewSet):\n    queryset = PostUserLikes.objects.all()\n    serializer_class = PostUserLikesSerializer\n# class DemoViewSet(ViewSet):\n#     \"\"\"\n#     Example empty viewset demonstrating the standard actions\n#     \"\"\"",
+        "peekOfCode": "class UserProfileViewSet(ModelViewSet):\n    queryset = UserProfile.objects.all()\n    serializer_class = UserProfileSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\nclass LikesViewSet(ModelViewSet):\n    queryset = PostUserLikes.objects.all()\n    serializer_class = PostUserLikesSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\n# class DemoViewSet(ViewSet):\n#     \"\"\"",
         "detail": "blog.views",
         "documentation": {}
     },
@@ -589,8 +661,35 @@
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class LikesViewSet(ModelViewSet):\n    queryset = PostUserLikes.objects.all()\n    serializer_class = PostUserLikesSerializer\n# class DemoViewSet(ViewSet):\n#     \"\"\"\n#     Example empty viewset demonstrating the standard actions\n#     \"\"\"\n#     def list(self, request):\n#        # posts = PostSerializer(Post.objects.all())\n#         return Response('list')",
+        "peekOfCode": "class LikesViewSet(ModelViewSet):\n    queryset = PostUserLikes.objects.all()\n    serializer_class = PostUserLikesSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\n# class DemoViewSet(ViewSet):\n#     \"\"\"\n#     Example empty viewset demonstrating the standard actions\n#     \"\"\"\n#     def list(self, request):\n#        # posts = PostSerializer(Post.objects.all())",
         "detail": "blog.views",
+        "documentation": {}
+    },
+    {
+        "label": "IsOwnerOrModelPermissions",
+        "kind": 6,
+        "importPath": "core.permissions",
+        "description": "core.permissions",
+        "peekOfCode": "class IsOwnerOrModelPermissions(DjangoModelPermissions):\n    # we already have has_permission method in DjangoModelPermissions\n    # so we need to override has_object_permission\n    def has_object_permission(self, request, view, obj):\n        if (\n            request.method in permissions.SAFE_METHODS \n            and super().has_permission(request, view)\n        ):\n            return True\n        return (",
+        "detail": "core.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsOwnerOrReadOnly",
+        "kind": 6,
+        "importPath": "core.permissions",
+        "description": "core.permissions",
+        "peekOfCode": "class IsOwnerOrReadOnly(BasePermission):\n    def has_object_permission(self, request, view, obj):\n        # GET is allowed\n        if request.method in permissions.SAFE_METHODS:\n            return True\n        # posts and comments has attribute author\n        if hasattr(obj, 'author'):\n            return obj.author.user == request.user\n        return False\nclass IsAdminOrModerator(BasePermission):",
+        "detail": "core.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAdminOrModerator",
+        "kind": 6,
+        "importPath": "core.permissions",
+        "description": "core.permissions",
+        "peekOfCode": "class IsAdminOrModerator(BasePermission):\n    # by default has_object_permission returns True\n    def has_permission(self, request, view):\n        is_admin = (\n            request.user and\n            request.user.is_authenticated and\n            request.user.is_superuser\n        )\n        if is_admin:\n            return True",
+        "detail": "core.permissions",
         "documentation": {}
     },
     {
@@ -733,7 +832,25 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "ROOT_URLCONF = 'lec4.urls'\n# a file/dir module\nimport os\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\n            os.path.join(BASE_DIR, 'templates'),\n            os.path.join(BASE_DIR, 'templatetags')\n        ],",
+        "peekOfCode": "ROOT_URLCONF = 'lec4.urls'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\n            os.path.join(BASE_DIR, 'templates'),\n            os.path.join(BASE_DIR, 'templatetags')\n        ],",
+        "detail": "lec4.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_URL",
+        "kind": 5,
+        "importPath": "lec4.settings",
+        "description": "lec4.settings",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\n            os.path.join(BASE_DIR, 'templates'),\n            os.path.join(BASE_DIR, 'templatetags')\n        ],\n        'APP_DIRS': True,",
+        "detail": "lec4.settings",
+        "documentation": {}
+    },
+    {
+        "label": "MEDIA_ROOT",
+        "kind": 5,
+        "importPath": "lec4.settings",
+        "description": "lec4.settings",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\n            os.path.join(BASE_DIR, 'templates'),\n            os.path.join(BASE_DIR, 'templatetags')\n        ],\n        'APP_DIRS': True,\n        'OPTIONS': {",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -769,7 +886,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_RENDERER_CLASSES': [\n        'rest_framework.renderers.JSONRenderer',\n        'rest_framework.renderers.BrowsableAPIRenderer',\n    ],\n}\nTAGGIT_CASE_INSENSITIVE = True\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [",
+        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_RENDERER_CLASSES': [\n        'rest_framework.renderers.JSONRenderer',\n        'rest_framework.renderers.BrowsableAPIRenderer',\n    ],\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny',\n    ]\n}\nTAGGIT_CASE_INSENSITIVE = True",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -850,7 +967,7 @@
         "kind": 5,
         "importPath": "lec4.urls",
         "description": "lec4.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/v1/', include('blog.urls')),\n]\n# /api/v2/posts",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/v1/', include('blog.urls')),\n]\n# https://docs.djangoproject.com/en/5.1/howto/static-files/#serving-static-files-during-development\nurlpatterns += static(\n        settings.MEDIA_URL,\n        document_root=settings.MEDIA_ROOT\n)",
         "detail": "lec4.urls",
         "documentation": {}
     },
