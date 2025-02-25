@@ -307,6 +307,14 @@
         "documentation": {}
     },
     {
+        "label": "try_parse_int",
+        "importPath": "core.utils",
+        "description": "core.utils",
+        "isExtraImport": true,
+        "detail": "core.utils",
+        "documentation": {}
+    },
+    {
         "label": "ModelViewSet",
         "importPath": "rest_framework.viewsets",
         "description": "rest_framework.viewsets",
@@ -554,7 +562,7 @@
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class CommentsViewSet(ModelViewSet):\n    queryset = Comment.objects.all()\n    serializer_class = CommentSerializer\n    def create(self, request, *args, **kwargs):\n        data = request.data\n        reply_to = data.get('reply_to')\n        post_id = data.get('post')\n        if reply_to:\n            replied = Comment.objects.get(id=reply_to)\n            print(replied)",
+        "peekOfCode": "class CommentsViewSet(ModelViewSet):\n    queryset = Comment.objects.all()\n    serializer_class = CommentSerializer\n    def create(self, request, *args, **kwargs):\n        data = request.data\n        reply_to = data.get('reply_to')\n        post_id = try_parse_int(data.get('post'))\n        if reply_to:\n            replied = Comment.objects.get(id=reply_to)\n            print(replied)",
         "detail": "blog.views",
         "documentation": {}
     },
@@ -583,6 +591,15 @@
         "description": "blog.views",
         "peekOfCode": "class LikesViewSet(ModelViewSet):\n    queryset = PostUserLikes.objects.all()\n    serializer_class = PostUserLikesSerializer\n# class DemoViewSet(ViewSet):\n#     \"\"\"\n#     Example empty viewset demonstrating the standard actions\n#     \"\"\"\n#     def list(self, request):\n#        # posts = PostSerializer(Post.objects.all())\n#         return Response('list')",
         "detail": "blog.views",
+        "documentation": {}
+    },
+    {
+        "label": "try_parse_int",
+        "kind": 2,
+        "importPath": "core.utils",
+        "description": "core.utils",
+        "peekOfCode": "def try_parse_int(value: str, default=None):\n    try:\n        return int(value)\n    except (ValueError, TypeError):\n        return default\n# x = try_parse_int(\"hello\", 0)\n# x = try_parse_int(\"hello\")",
+        "detail": "core.utils",
         "documentation": {}
     },
     {

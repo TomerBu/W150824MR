@@ -1,3 +1,4 @@
+from core.utils import try_parse_int
 from .serializers import *
 from .models import Comment, Post, UserProfile, PostUserLikes
 from rest_framework.viewsets import ModelViewSet
@@ -11,7 +12,7 @@ class CommentsViewSet(ModelViewSet):
     def create(self, request, *args, **kwargs):
         data = request.data
         reply_to = data.get('reply_to')
-        post_id = data.get('post')
+        post_id = try_parse_int(data.get('post'))
         
         if reply_to:
             replied = Comment.objects.get(id=reply_to)
