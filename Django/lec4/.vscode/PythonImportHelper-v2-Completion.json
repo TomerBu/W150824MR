@@ -211,6 +211,22 @@
         "documentation": {}
     },
     {
+        "label": "post_save",
+        "importPath": "django.db.models.signals",
+        "description": "django.db.models.signals",
+        "isExtraImport": true,
+        "detail": "django.db.models.signals",
+        "documentation": {}
+    },
+    {
+        "label": "receiver",
+        "importPath": "django.dispatch",
+        "description": "django.dispatch",
+        "isExtraImport": true,
+        "detail": "django.dispatch",
+        "documentation": {}
+    },
+    {
         "label": "User",
         "importPath": "django.contrib.auth.models",
         "description": "django.contrib.auth.models",
@@ -508,7 +524,7 @@
         "kind": 6,
         "importPath": "blog.apps",
         "description": "blog.apps",
-        "peekOfCode": "class BlogConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'blog'\n    # post_save\n    def perform_add_user_to_users_group(sender, instance, created, **kwargs):\n        # the import is nested inside the function\n        from django.contrib.auth.models import Group, User\n        if not created:\n            return\n        group, _ = Group.objects.get_or_create(name='users')",
+        "peekOfCode": "class BlogConfig(AppConfig):\n    default_auto_field = 'django.db.models.BigAutoField'\n    name = 'blog'\n    @receiver(post_save, sender='auth.User')\n    def perform_add_user_to_users_group(sender, instance, created, **kwargs):\n        # the import is nested inside the function\n        from django.contrib.auth.models import Group, User\n        from blog.models import UserProfile\n        from rest_framework.authtoken.models import Token\n        if not created:",
         "detail": "blog.apps",
         "documentation": {}
     },
@@ -814,7 +830,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'taggit',\n    'hw',",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'rest_framework.authtoken',\n    'taggit',",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -886,7 +902,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_RENDERER_CLASSES': [\n        'rest_framework.renderers.JSONRenderer',\n        'rest_framework.renderers.BrowsableAPIRenderer',\n    ],\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny',\n    ]\n}\nTAGGIT_CASE_INSENSITIVE = True",
+        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_RENDERER_CLASSES': [\n        'rest_framework.renderers.JSONRenderer',\n        'rest_framework.renderers.BrowsableAPIRenderer',\n    ],\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny',\n    ], \n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.SessionAuthentication',",
         "detail": "lec4.settings",
         "documentation": {}
     },
