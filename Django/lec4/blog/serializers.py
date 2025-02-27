@@ -6,7 +6,7 @@ from rest_framework.serializers import HiddenField, SerializerMethodField
 
 from rest_framework.serializers import ModelSerializer
 from django.contrib.auth.models import User
-
+from rest_framework.serializers import ValidationError
 class UserSerializer(ModelSerializer):
     class Meta:
         model = User
@@ -17,17 +17,24 @@ class UserSerializer(ModelSerializer):
             'email': {'required': True},
             'username': {'required': True, 'min_length':3},
         }
+    
+    def validate_password(self, value):
+        if len(value) < 8:
+            raise ValidationError('Password must be at least 8 characters long.')
+        return value
+    
+    def validate(self, attrs):
+        if attrs['password'] == attrs['username']:
+            raise ValidationError('Password must be different from username.')
+        return super().validate(attrs)
 
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
 
     def update(self, instance:User, validated_data):
-        # instance is a user object
-        # validated_data is a dictionary from the request
-        # נחלץ את הסיסמא מהמילון של הערכים המאומתים
         password = validated_data.pop('password', None)
-        # לולאה על כל הערכים במילון והוספה שלהם לאובייקט
+
         for key, value in validated_data.items():
             setattr(instance, key, value)
             

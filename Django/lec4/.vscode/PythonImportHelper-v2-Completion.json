@@ -291,6 +291,14 @@
         "documentation": {}
     },
     {
+        "label": "ValidationError",
+        "importPath": "rest_framework.serializers",
+        "description": "rest_framework.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.serializers",
+        "documentation": {}
+    },
+    {
         "label": "ModelSerializer",
         "importPath": "rest_framework.serializers",
         "description": "rest_framework.serializers",
@@ -531,6 +539,30 @@
         "documentation": {}
     },
     {
+        "label": "AuthTokenSerializer",
+        "importPath": "rest_framework.authtoken.serializers",
+        "description": "rest_framework.authtoken.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework.authtoken.serializers",
+        "documentation": {}
+    },
+    {
+        "label": "get_tokens_for_user",
+        "importPath": "core.authentication",
+        "description": "core.authentication",
+        "isExtraImport": true,
+        "detail": "core.authentication",
+        "documentation": {}
+    },
+    {
+        "label": "RefreshToken",
+        "importPath": "rest_framework_simplejwt.tokens",
+        "description": "rest_framework_simplejwt.tokens",
+        "isExtraImport": true,
+        "detail": "rest_framework_simplejwt.tokens",
+        "documentation": {}
+    },
+    {
         "label": "permissions",
         "importPath": "rest_framework",
         "description": "rest_framework",
@@ -588,6 +620,14 @@
         "documentation": {}
     },
     {
+        "label": "timedelta",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "static",
         "importPath": "django.conf.urls.static",
         "description": "django.conf.urls.static",
@@ -609,6 +649,22 @@
         "description": "lec4.settings",
         "isExtraImport": true,
         "detail": "lec4.settings",
+        "documentation": {}
+    },
+    {
+        "label": "TokenObtainPairView",
+        "importPath": "rest_framework_simplejwt.views",
+        "description": "rest_framework_simplejwt.views",
+        "isExtraImport": true,
+        "detail": "rest_framework_simplejwt.views",
+        "documentation": {}
+    },
+    {
+        "label": "TokenRefreshView",
+        "importPath": "rest_framework_simplejwt.views",
+        "description": "rest_framework_simplejwt.views",
+        "isExtraImport": true,
+        "detail": "rest_framework_simplejwt.views",
         "documentation": {}
     },
     {
@@ -804,7 +860,7 @@
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class AuthViewSet(ViewSet):\n    queryset = User.objects.all()\n    serializer_class = UserSerializer\n    permission_classes = [AllowAny]\n    @action(detail = False, methods=['post'], permission_classes=[IsAuthenticated])\n    def logout(self, request):\n        try:\n            logout(request)\n            request.user.auth_token.delete()\n        except:",
+        "peekOfCode": "class AuthViewSet(ViewSet):\n    queryset = User.objects.all()\n    serializer_class = UserSerializer\n    permission_classes = [AllowAny]\n    @action(detail = False, methods=['post', 'get'])\n    def login(self, request):\n        serializer = AuthTokenSerializer(data=request.data, context = {'request': request})\n        serializer.is_valid(raise_exception=True)\n        user = serializer.validated_data['user']\n        token, _ = Token.objects.get_or_create(user=user)",
         "detail": "blog.views",
         "documentation": {}
     },
@@ -851,6 +907,15 @@
         "description": "blog.views",
         "peekOfCode": "class LikesViewSet(ModelViewSet):\n    queryset = PostUserLikes.objects.all()\n    serializer_class = PostUserLikesSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\n# class DemoViewSet(ViewSet):\n#     \"\"\"\n#     Example empty viewset demonstrating the standard actions\n#     \"\"\"\n#     def list(self, request):\n#        # posts = PostSerializer(Post.objects.all())",
         "detail": "blog.views",
+        "documentation": {}
+    },
+    {
+        "label": "get_tokens_for_user",
+        "kind": 2,
+        "importPath": "core.authentication",
+        "description": "core.authentication",
+        "peekOfCode": "def get_tokens_for_user(user):\n    refresh = RefreshToken.for_user(user)\n    return {\n        'refresh': str(refresh),\n        'access': str(refresh.access_token),\n    }",
+        "detail": "core.authentication",
         "documentation": {}
     },
     {
@@ -1002,7 +1067,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'rest_framework.authtoken',\n    'taggit',",
+        "peekOfCode": "INSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'rest_framework',\n    'rest_framework_simplejwt',\n    'rest_framework.authtoken',",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1075,6 +1140,15 @@
         "importPath": "lec4.settings",
         "description": "lec4.settings",
         "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_RENDERER_CLASSES': [\n        'rest_framework.renderers.JSONRenderer',\n        'rest_framework.renderers.BrowsableAPIRenderer',\n    ],\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny',\n    ], \n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.SessionAuthentication',",
+        "detail": "lec4.settings",
+        "documentation": {}
+    },
+    {
+        "label": "SIMPLE_JWT",
+        "kind": 5,
+        "importPath": "lec4.settings",
+        "description": "lec4.settings",
+        "peekOfCode": "SIMPLE_JWT = {\n    \"ACCESS_TOKEN_LIFETIME\": timedelta(minutes=5),\n    \"REFRESH_TOKEN_LIFETIME\": timedelta(days=1),\n    \"ROTATE_REFRESH_TOKENS\": True, #after refresh - get a new refresh token\n    \"BLACKLIST_AFTER_ROTATION\": True, #cancel old refresh tokens\n}\nTAGGIT_CASE_INSENSITIVE = True\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1155,7 +1229,7 @@
         "kind": 5,
         "importPath": "lec4.urls",
         "description": "lec4.urls",
-        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/v1/', include('blog.urls')),\n]\n# https://docs.djangoproject.com/en/5.1/howto/static-files/#serving-static-files-during-development\nurlpatterns += static(\n        settings.MEDIA_URL,\n        document_root=settings.MEDIA_ROOT\n)",
+        "peekOfCode": "urlpatterns = [\n    path('admin/', admin.site.urls),\n    path('api/v1/', include('blog.urls')),\n    path('api/v1/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),\n    path('api/v1/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),\n]\n# https://docs.djangoproject.com/en/5.1/howto/static-files/#serving-static-files-during-development\nurlpatterns += static(\n        settings.MEDIA_URL,\n        document_root=settings.MEDIA_ROOT",
         "detail": "lec4.urls",
         "documentation": {}
     },

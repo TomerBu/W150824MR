@@ -18,12 +18,25 @@ from rest_framework.reverse import reverse
 
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth import login, logout
+from rest_framework.authtoken.serializers import AuthTokenSerializer
+
+from core.authentication import get_tokens_for_user
 class AuthViewSet(ViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 
-
+    @action(detail = False, methods=['post', 'get'])
+    def login(self, request):
+        serializer = AuthTokenSerializer(data=request.data, context = {'request': request})
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data['user']
+        token, _ = Token.objects.get_or_create(user=user)
+        # from core.authentication import get_tokens_for_user
+        jwt = get_tokens_for_user(user)
+        login(request, user)
+        return Response({"token": token.key, 'jwt': jwt})
+   
     @action(detail = False, methods=['post'], permission_classes=[IsAuthenticated])
     def logout(self, request):
         try:
@@ -38,7 +51,7 @@ class AuthViewSet(ViewSet):
 
     def list(self, request):
         return Response({
-            "login":"url", 
+            "login":reverse('auth-login', request=request),
             "register": reverse('auth-register', request=request),
             "logout": reverse('auth-logout', request=request),
         })
@@ -48,9 +61,13 @@ class AuthViewSet(ViewSet):
         serializer = UserSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
-
+        jwt = get_tokens_for_user(user)
         token, _ = Token.objects.get_or_create(user=user)
-        return Response({"token": token.key})
+        return Response({'token': token.key, 'jwt':jwt})
+
+
+    #from rest_framework.authtoken.serializers import AuthTokenSerializer
+
 
 
 class UsersViewSet(ModelViewSet):
