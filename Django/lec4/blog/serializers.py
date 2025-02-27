@@ -22,7 +22,18 @@ class UserSerializer(ModelSerializer):
         user = User.objects.create_user(**validated_data)
         return user
 
-    # TODO: update will not encrypt the password
+    def update(self, instance:User, validated_data):
+        # instance is a user object
+        # validated_data is a dictionary from the request
+        # נחלץ את הסיסמא מהמילון של הערכים המאומתים
+        password = validated_data.pop('password', None)
+        # לולאה על כל הערכים במילון והוספה שלהם לאובייקט
+        for key, value in validated_data.items():
+            setattr(instance, key, value)
+            
+        instance.set_password(password)
+        instance.save()
+        return instance
 
 
 

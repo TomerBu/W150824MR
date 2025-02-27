@@ -20,3 +20,12 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+# python -m venv .venv
+# ./.venv/Scripts/activate
+
+# pip install django djangorestframework django-taggit Pillow 
+# pip install psycopg2 
+
+# pip list>requirements.txt
