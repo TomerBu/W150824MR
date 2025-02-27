@@ -6,7 +6,10 @@ from rest_framework.routers import DefaultRouter
 router = DefaultRouter()
 
 from .views import UsersViewSet
-router.register('auth', UsersViewSet, basename='auth')
+router.register('admin', UsersViewSet, basename='admin')
+
+from blog.views import AuthViewSet
+router.register('auth', AuthViewSet, basename='auth')
 
 router.register('comments', CommentsViewSet, basename='comment')
 router.register('posts', PostsViewSet, basename='posts')

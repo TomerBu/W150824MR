@@ -243,6 +243,14 @@
         "documentation": {}
     },
     {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
         "label": "TagListSerializerField",
         "importPath": "taggit.serializers",
         "description": "taggit.serializers",
@@ -371,6 +379,14 @@
         "documentation": {}
     },
     {
+        "label": "AuthViewSet",
+        "importPath": "blog.views",
+        "description": "blog.views",
+        "isExtraImport": true,
+        "detail": "blog.views",
+        "documentation": {}
+    },
+    {
         "label": "try_parse_int",
         "importPath": "core.utils",
         "description": "core.utils",
@@ -395,15 +411,39 @@
         "documentation": {}
     },
     {
-        "label": "ModelViewSet",
-        "importPath": "rest_framework.viewsets",
-        "description": "rest_framework.viewsets",
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
         "isExtraImport": true,
-        "detail": "rest_framework.viewsets",
+        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
         "label": "DjangoModelPermissions",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAdminUser",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "AllowAny",
+        "importPath": "rest_framework.permissions",
+        "description": "rest_framework.permissions",
+        "isExtraImport": true,
+        "detail": "rest_framework.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "IsAuthenticated",
         "importPath": "rest_framework.permissions",
         "description": "rest_framework.permissions",
         "isExtraImport": true,
@@ -432,6 +472,62 @@
         "description": "core.permissions",
         "isExtraImport": true,
         "detail": "core.permissions",
+        "documentation": {}
+    },
+    {
+        "label": "ModelViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "ViewSet",
+        "importPath": "rest_framework.viewsets",
+        "description": "rest_framework.viewsets",
+        "isExtraImport": true,
+        "detail": "rest_framework.viewsets",
+        "documentation": {}
+    },
+    {
+        "label": "action",
+        "importPath": "rest_framework.decorators",
+        "description": "rest_framework.decorators",
+        "isExtraImport": true,
+        "detail": "rest_framework.decorators",
+        "documentation": {}
+    },
+    {
+        "label": "Token",
+        "importPath": "rest_framework.authtoken.models",
+        "description": "rest_framework.authtoken.models",
+        "isExtraImport": true,
+        "detail": "rest_framework.authtoken.models",
+        "documentation": {}
+    },
+    {
+        "label": "reverse",
+        "importPath": "rest_framework.reverse",
+        "description": "rest_framework.reverse",
+        "isExtraImport": true,
+        "detail": "rest_framework.reverse",
+        "documentation": {}
+    },
+    {
+        "label": "login",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
+        "documentation": {}
+    },
+    {
+        "label": "logout",
+        "importPath": "django.contrib.auth",
+        "description": "django.contrib.auth",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth",
         "documentation": {}
     },
     {
@@ -690,7 +786,7 @@
         "kind": 5,
         "importPath": "blog.urls",
         "description": "blog.urls",
-        "peekOfCode": "router = DefaultRouter()\nfrom .views import UsersViewSet\nrouter.register('auth', UsersViewSet, basename='auth')\nrouter.register('comments', CommentsViewSet, basename='comment')\nrouter.register('posts', PostsViewSet, basename='posts')\nrouter.register('user-profile', UserProfileViewSet, basename='user-profile')\nrouter.register('likes', LikesViewSet, basename='likes')\nfrom rest_framework.authtoken import views as auth_views\nurlpatterns = [\n    path('', include(router.urls)),",
+        "peekOfCode": "router = DefaultRouter()\nfrom .views import UsersViewSet\nrouter.register('admin', UsersViewSet, basename='admin')\nfrom blog.views import AuthViewSet\nrouter.register('auth', AuthViewSet, basename='auth')\nrouter.register('comments', CommentsViewSet, basename='comment')\nrouter.register('posts', PostsViewSet, basename='posts')\nrouter.register('user-profile', UserProfileViewSet, basename='user-profile')\nrouter.register('likes', LikesViewSet, basename='likes')\nfrom rest_framework.authtoken import views as auth_views",
         "detail": "blog.urls",
         "documentation": {}
     },
@@ -704,11 +800,20 @@
         "documentation": {}
     },
     {
+        "label": "AuthViewSet",
+        "kind": 6,
+        "importPath": "blog.views",
+        "description": "blog.views",
+        "peekOfCode": "class AuthViewSet(ViewSet):\n    queryset = User.objects.all()\n    serializer_class = UserSerializer\n    permission_classes = [AllowAny]\n    @action(detail = False, methods=['post'], permission_classes=[IsAuthenticated])\n    def logout(self, request):\n        try:\n            logout(request)\n            request.user.auth_token.delete()\n        except:",
+        "detail": "blog.views",
+        "documentation": {}
+    },
+    {
         "label": "UsersViewSet",
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class UsersViewSet(ModelViewSet):\n    queryset = User.objects.all()\n    serializer_class = UserSerializer\nclass CommentsViewSet(ModelViewSet):\n    queryset = Comment.objects.all()\n    serializer_class = CommentSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\n    def create(self, request, *args, **kwargs):\n        data = request.data\n        reply_to = data.get('reply_to')",
+        "peekOfCode": "class UsersViewSet(ModelViewSet):\n    queryset = User.objects.all()\n    serializer_class = UserSerializer\n    permission_classes = [IsAdminUser]\nclass CommentsViewSet(ModelViewSet):\n    queryset = Comment.objects.all()\n    serializer_class = CommentSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\n    def create(self, request, *args, **kwargs):\n        data = request.data",
         "detail": "blog.views",
         "documentation": {}
     },

@@ -1,14 +1,62 @@
 from core.utils import try_parse_int
+
 from .serializers import *
 from .models import Comment, Post, UserProfile, PostUserLikes
 from rest_framework.response import Response
-from rest_framework.viewsets import ModelViewSet
-from rest_framework.permissions import DjangoModelPermissions
+
+from rest_framework.permissions import DjangoModelPermissions, IsAdminUser
 from core.permissions import IsOwnerOrModelPermissions
+
+from rest_framework.viewsets import ModelViewSet, ViewSet
+from rest_framework.response import Response
+from django.contrib.auth.models import User
+from rest_framework.permissions import AllowAny
+from rest_framework.decorators import action
+from rest_framework.authtoken.models import Token
+
+from rest_framework.reverse import reverse
+
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth import login, logout
+class AuthViewSet(ViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [AllowAny]
+
+
+    @action(detail = False, methods=['post'], permission_classes=[IsAuthenticated])
+    def logout(self, request):
+        try:
+            logout(request)
+            request.user.auth_token.delete()
+        except:
+            pass
+
+        return Response({"message": "Logged out successfully"})
+
+
+
+    def list(self, request):
+        return Response({
+            "login":"url", 
+            "register": reverse('auth-register', request=request),
+            "logout": reverse('auth-logout', request=request),
+        })
+    
+    @action(detail = False, methods=['post', 'get'])
+    def register(self, request):
+        serializer = UserSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+
+        token, _ = Token.objects.get_or_create(user=user)
+        return Response({"token": token.key})
+
 
 class UsersViewSet(ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = [IsAdminUser]
 
 class CommentsViewSet(ModelViewSet):
     queryset = Comment.objects.all()
