@@ -32,7 +32,6 @@ class AuthViewSet(ViewSet):
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         token, _ = Token.objects.get_or_create(user=user)
-        # from core.authentication import get_tokens_for_user
         jwt = get_tokens_for_user(user)
         login(request, user)
         return Response({"token": token.key, 'jwt': jwt})
@@ -123,12 +122,34 @@ class CommentsViewSet(ModelViewSet):
         res.data = root_comments
         return res
 
+from rest_framework.throttling import AnonRateThrottle, UserRateThrottle
+from blog.throttling import (
+    CreatePostUserRateThrottle,
+    CreatePostAnonRateThrottle,
+    ListPostsUserRateThrottle, 
+    ListPostsAnonRateThrottle
+ )
+
+from rest_framework.filters import OrderingFilter, SearchFilter
+from django_filters.rest_framework import DjangoFilterBackend
+
 
 class PostsViewSet(ModelViewSet):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [IsOwnerOrModelPermissions]
+    filter_backends = [OrderingFilter, DjangoFilterBackend, SearchFilter]
 
+    filterset_fields = ['author', 'title', 'text', 'created_at', 'updated_at']
+    search_fields = ['title', 'text']
+
+    # mapping = {
+    #     'create': [CreatePostUserRateThrottle, CreatePostAnonRateThrottle],
+    #     'list': [ListPostsUserRateThrottle, ListPostsAnonRateThrottle],
+    # }
+    # def get_throttles(self):
+    #     throttles = self.mapping.get(self.action, [])
+    #     return [throttle() for throttle in throttles]
 
 class UserProfileViewSet(ModelViewSet):
     queryset = UserProfile.objects.all()

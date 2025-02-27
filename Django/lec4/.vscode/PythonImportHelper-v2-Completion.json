@@ -227,11 +227,99 @@
         "documentation": {}
     },
     {
-        "label": "User",
-        "importPath": "django.contrib.auth.models",
-        "description": "django.contrib.auth.models",
+        "label": "exception_handler",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
         "isExtraImport": true,
-        "detail": "django.contrib.auth.models",
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
+        "label": "APIView",
+        "importPath": "rest_framework.views",
+        "description": "rest_framework.views",
+        "isExtraImport": true,
+        "detail": "rest_framework.views",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "rest_framework.response",
+        "description": "rest_framework.response",
+        "isExtraImport": true,
+        "detail": "rest_framework.response",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "permissions",
+        "importPath": "rest_framework",
+        "description": "rest_framework",
+        "isExtraImport": true,
+        "detail": "rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "Http404",
+        "importPath": "django.http",
+        "description": "django.http",
+        "isExtraImport": true,
+        "detail": "django.http",
+        "documentation": {}
+    },
+    {
+        "label": "PermissionDenied",
+        "importPath": "django.core.exceptions",
+        "description": "django.core.exceptions",
+        "isExtraImport": true,
+        "detail": "django.core.exceptions",
+        "documentation": {}
+    },
+    {
+        "label": "Throttled",
+        "importPath": "rest_framework.exceptions",
+        "description": "rest_framework.exceptions",
+        "isExtraImport": true,
+        "detail": "rest_framework.exceptions",
         "documentation": {}
     },
     {
@@ -248,6 +336,31 @@
         "description": "django.contrib.auth.models",
         "isExtraImport": true,
         "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "User",
+        "importPath": "django.contrib.auth.models",
+        "description": "django.contrib.auth.models",
+        "isExtraImport": true,
+        "detail": "django.contrib.auth.models",
+        "documentation": {}
+    },
+    {
+        "label": "PageNumberPagination",
+        "importPath": "rest_framework.pagination",
+        "description": "rest_framework.pagination",
+        "isExtraImport": true,
+        "detail": "rest_framework.pagination",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
         "documentation": {}
     },
     {
@@ -307,6 +420,14 @@
         "documentation": {}
     },
     {
+        "label": "TokenObtainPairSerializer",
+        "importPath": "rest_framework_simplejwt.serializers",
+        "description": "rest_framework_simplejwt.serializers",
+        "isExtraImport": true,
+        "detail": "rest_framework_simplejwt.serializers",
+        "documentation": {}
+    },
+    {
         "label": "TestCase",
         "importPath": "django.test",
         "description": "django.test",
@@ -320,6 +441,54 @@
         "description": "django.test",
         "isExtraImport": true,
         "detail": "django.test",
+        "documentation": {}
+    },
+    {
+        "label": "UserRateThrottle",
+        "importPath": "rest_framework.throttling",
+        "description": "rest_framework.throttling",
+        "isExtraImport": true,
+        "detail": "rest_framework.throttling",
+        "documentation": {}
+    },
+    {
+        "label": "AnonRateThrottle",
+        "importPath": "rest_framework.throttling",
+        "description": "rest_framework.throttling",
+        "isExtraImport": true,
+        "detail": "rest_framework.throttling",
+        "documentation": {}
+    },
+    {
+        "label": "BaseThrottle",
+        "importPath": "rest_framework.throttling",
+        "description": "rest_framework.throttling",
+        "isExtraImport": true,
+        "detail": "rest_framework.throttling",
+        "documentation": {}
+    },
+    {
+        "label": "AnonRateThrottle",
+        "importPath": "rest_framework.throttling",
+        "description": "rest_framework.throttling",
+        "isExtraImport": true,
+        "detail": "rest_framework.throttling",
+        "documentation": {}
+    },
+    {
+        "label": "UserRateThrottle",
+        "importPath": "rest_framework.throttling",
+        "description": "rest_framework.throttling",
+        "isExtraImport": true,
+        "detail": "rest_framework.throttling",
+        "documentation": {}
+    },
+    {
+        "label": "cache",
+        "importPath": "django.core.cache",
+        "description": "django.core.cache",
+        "isExtraImport": true,
+        "detail": "django.core.cache",
         "documentation": {}
     },
     {
@@ -400,30 +569,6 @@
         "description": "core.utils",
         "isExtraImport": true,
         "detail": "core.utils",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
-        "isExtraImport": true,
-        "detail": "rest_framework.response",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
-        "isExtraImport": true,
-        "detail": "rest_framework.response",
-        "documentation": {}
-    },
-    {
-        "label": "Response",
-        "importPath": "rest_framework.response",
-        "description": "rest_framework.response",
-        "isExtraImport": true,
-        "detail": "rest_framework.response",
         "documentation": {}
     },
     {
@@ -555,19 +700,67 @@
         "documentation": {}
     },
     {
-        "label": "RefreshToken",
-        "importPath": "rest_framework_simplejwt.tokens",
-        "description": "rest_framework_simplejwt.tokens",
+        "label": "CreatePostUserRateThrottle",
+        "importPath": "blog.throttling",
+        "description": "blog.throttling",
         "isExtraImport": true,
-        "detail": "rest_framework_simplejwt.tokens",
+        "detail": "blog.throttling",
         "documentation": {}
     },
     {
-        "label": "permissions",
-        "importPath": "rest_framework",
-        "description": "rest_framework",
+        "label": "CreatePostAnonRateThrottle",
+        "importPath": "blog.throttling",
+        "description": "blog.throttling",
         "isExtraImport": true,
-        "detail": "rest_framework",
+        "detail": "blog.throttling",
+        "documentation": {}
+    },
+    {
+        "label": "ListPostsUserRateThrottle",
+        "importPath": "blog.throttling",
+        "description": "blog.throttling",
+        "isExtraImport": true,
+        "detail": "blog.throttling",
+        "documentation": {}
+    },
+    {
+        "label": "ListPostsAnonRateThrottle",
+        "importPath": "blog.throttling",
+        "description": "blog.throttling",
+        "isExtraImport": true,
+        "detail": "blog.throttling",
+        "documentation": {}
+    },
+    {
+        "label": "OrderingFilter",
+        "importPath": "rest_framework.filters",
+        "description": "rest_framework.filters",
+        "isExtraImport": true,
+        "detail": "rest_framework.filters",
+        "documentation": {}
+    },
+    {
+        "label": "SearchFilter",
+        "importPath": "rest_framework.filters",
+        "description": "rest_framework.filters",
+        "isExtraImport": true,
+        "detail": "rest_framework.filters",
+        "documentation": {}
+    },
+    {
+        "label": "DjangoFilterBackend",
+        "importPath": "django_filters.rest_framework",
+        "description": "django_filters.rest_framework",
+        "isExtraImport": true,
+        "detail": "django_filters.rest_framework",
+        "documentation": {}
+    },
+    {
+        "label": "BlogTokenObtainPairSerializer",
+        "importPath": "blog.serializers",
+        "description": "blog.serializers",
+        "isExtraImport": true,
+        "detail": "blog.serializers",
         "documentation": {}
     },
     {
@@ -576,14 +769,6 @@
         "description": "hw.models",
         "isExtraImport": true,
         "detail": "hw.models",
-        "documentation": {}
-    },
-    {
-        "label": "APIView",
-        "importPath": "rest_framework.views",
-        "description": "rest_framework.views",
-        "isExtraImport": true,
-        "detail": "rest_framework.views",
         "documentation": {}
     },
     {
@@ -617,6 +802,14 @@
         "description": "pathlib",
         "isExtraImport": true,
         "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "config",
+        "importPath": "decouple",
+        "description": "decouple",
+        "isExtraImport": true,
+        "detail": "decouple",
         "documentation": {}
     },
     {
@@ -721,6 +914,15 @@
         "documentation": {}
     },
     {
+        "label": "blog_exception_handler",
+        "kind": 2,
+        "importPath": "blog.exceptions",
+        "description": "blog.exceptions",
+        "peekOfCode": "def blog_exception_handler(exc, context):\n    response = exception_handler(exc, context)\n    if isinstance(exc, Http404):\n        return Response({\"error\":\"Resource Not Found!!!\"}, status=status.HTTP_404_NOT_FOUND)\n    if isinstance(exc, ValueError):\n        return Response({\"error\":\"Invalid Input!!!\"}, status=status.HTTP_400_BAD_REQUEST)\n    if isinstance(exc, PermissionDenied):\n        return Response({\"error\":\"Permission Denied!!!\"}, status=status.HTTP_403_FORBIDDEN)\n    if isinstance(exc, Throttled):\n        return Response({\"error\":\"Request was Throttled!!!\"}, status=status.HTTP_429_TOO_MANY_REQUESTS)",
+        "detail": "blog.exceptions",
+        "documentation": {}
+    },
+    {
         "label": "UserProfile",
         "kind": 6,
         "importPath": "blog.models",
@@ -772,6 +974,24 @@
         "description": "blog.models",
         "peekOfCode": "LIKE_CHOICES = [\n    ('like', 'Like'),\n    ('dislike', 'Dislike')\n]\nclass PostUserLikes(models.Model):\n    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)\n    post = models.ForeignKey(Post, on_delete=models.CASCADE)\n    like_type = models.CharField(\n        choices=LIKE_CHOICES,\n        max_length=10,",
         "detail": "blog.models",
+        "documentation": {}
+    },
+    {
+        "label": "BlogPagination",
+        "kind": 6,
+        "importPath": "blog.pagination",
+        "description": "blog.pagination",
+        "peekOfCode": "class BlogPagination(PageNumberPagination):\n    page_size_query_param = 'page_size'  # Allows clients to set page size\n    max_page_size = 25  # Prevents excessively large pages\n    def get_paginated_response(self, data):\n        # account for the query parameter\n        page_size_mod = self.request.query_params.get('page_size')\n        if page_size_mod and page_size_mod.isdigit():\n            self.page_size = int(page_size_mod)\n        # Calculate total pages - total items divided by page size\n        # If there are any remaining items, add an extra page",
+        "detail": "blog.pagination",
+        "documentation": {}
+    },
+    {
+        "label": "BlogTokenObtainPairSerializer",
+        "kind": 6,
+        "importPath": "blog.serializers",
+        "description": "blog.serializers",
+        "peekOfCode": "class BlogTokenObtainPairSerializer(TokenObtainPairSerializer):\n    @classmethod\n    def get_token(cls, user):\n        token = super().get_token(user)\n        # Add custom claims\n        token['name'] = user.username\n        token['isadmin'] = user.is_superuser\n        return token\nclass UserSerializer(ModelSerializer):\n    class Meta:",
+        "detail": "blog.serializers",
         "documentation": {}
     },
     {
@@ -838,6 +1058,51 @@
         "documentation": {}
     },
     {
+        "label": "CreatePostUserRateThrottle",
+        "kind": 6,
+        "importPath": "blog.throttling",
+        "description": "blog.throttling",
+        "peekOfCode": "class CreatePostUserRateThrottle(UserRateThrottle):\n    scope = 'create_post_user'\nclass CreatePostAnonRateThrottle(AnonRateThrottle):\n    scope = 'create_post_anon'\nclass ListPostsUserRateThrottle(UserRateThrottle):\n    scope = 'list_posts_user'\nclass ListPostsAnonRateThrottle(AnonRateThrottle):\n     scope = 'list_posts_anon'\nfrom rest_framework.throttling import BaseThrottle\nfrom django.core.cache import cache",
+        "detail": "blog.throttling",
+        "documentation": {}
+    },
+    {
+        "label": "CreatePostAnonRateThrottle",
+        "kind": 6,
+        "importPath": "blog.throttling",
+        "description": "blog.throttling",
+        "peekOfCode": "class CreatePostAnonRateThrottle(AnonRateThrottle):\n    scope = 'create_post_anon'\nclass ListPostsUserRateThrottle(UserRateThrottle):\n    scope = 'list_posts_user'\nclass ListPostsAnonRateThrottle(AnonRateThrottle):\n     scope = 'list_posts_anon'\nfrom rest_framework.throttling import BaseThrottle\nfrom django.core.cache import cache\nclass BlogRateThrottle(BaseThrottle):\n    def allow_request(self, request, view):",
+        "detail": "blog.throttling",
+        "documentation": {}
+    },
+    {
+        "label": "ListPostsUserRateThrottle",
+        "kind": 6,
+        "importPath": "blog.throttling",
+        "description": "blog.throttling",
+        "peekOfCode": "class ListPostsUserRateThrottle(UserRateThrottle):\n    scope = 'list_posts_user'\nclass ListPostsAnonRateThrottle(AnonRateThrottle):\n     scope = 'list_posts_anon'\nfrom rest_framework.throttling import BaseThrottle\nfrom django.core.cache import cache\nclass BlogRateThrottle(BaseThrottle):\n    def allow_request(self, request, view):\n        if request.user.is_authenticated:\n            user_id = f'user_{request.user.id}'",
+        "detail": "blog.throttling",
+        "documentation": {}
+    },
+    {
+        "label": "ListPostsAnonRateThrottle",
+        "kind": 6,
+        "importPath": "blog.throttling",
+        "description": "blog.throttling",
+        "peekOfCode": "class ListPostsAnonRateThrottle(AnonRateThrottle):\n     scope = 'list_posts_anon'\nfrom rest_framework.throttling import BaseThrottle\nfrom django.core.cache import cache\nclass BlogRateThrottle(BaseThrottle):\n    def allow_request(self, request, view):\n        if request.user.is_authenticated:\n            user_id = f'user_{request.user.id}'\n            max_requests = 5\n        else:",
+        "detail": "blog.throttling",
+        "documentation": {}
+    },
+    {
+        "label": "BlogRateThrottle",
+        "kind": 6,
+        "importPath": "blog.throttling",
+        "description": "blog.throttling",
+        "peekOfCode": "class BlogRateThrottle(BaseThrottle):\n    def allow_request(self, request, view):\n        if request.user.is_authenticated:\n            user_id = f'user_{request.user.id}'\n            max_requests = 5\n        else:\n            user_id = f\"anon_{request.META.get('REMOTE_ADDR')}\"\n            max_requests = 1\n        #path =  /api/v1/posts/1\n        path = request.path",
+        "detail": "blog.throttling",
+        "documentation": {}
+    },
+    {
         "label": "router",
         "kind": 5,
         "importPath": "blog.urls",
@@ -887,7 +1152,7 @@
         "kind": 6,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "class PostsViewSet(ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\nclass UserProfileViewSet(ModelViewSet):\n    queryset = UserProfile.objects.all()\n    serializer_class = UserProfileSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\nclass LikesViewSet(ModelViewSet):\n    queryset = PostUserLikes.objects.all()",
+        "peekOfCode": "class PostsViewSet(ModelViewSet):\n    queryset = Post.objects.all()\n    serializer_class = PostSerializer\n    permission_classes = [IsOwnerOrModelPermissions]\n    filter_backends = [OrderingFilter, DjangoFilterBackend, SearchFilter]\n    filterset_fields = ['author', 'title', 'text', 'created_at', 'updated_at']\n    search_fields = ['title', 'text']\n    # mapping = {\n    #     'create': [CreatePostUserRateThrottle, CreatePostAnonRateThrottle],\n    #     'list': [ListPostsUserRateThrottle, ListPostsAnonRateThrottle],",
         "detail": "blog.views",
         "documentation": {}
     },
@@ -914,7 +1179,7 @@
         "kind": 2,
         "importPath": "core.authentication",
         "description": "core.authentication",
-        "peekOfCode": "def get_tokens_for_user(user):\n    refresh = RefreshToken.for_user(user)\n    return {\n        'refresh': str(refresh),\n        'access': str(refresh.access_token),\n    }",
+        "peekOfCode": "def get_tokens_for_user(user):\n    refresh = BlogTokenObtainPairSerializer.get_token(user)\n    return {\n        'refresh': str(refresh),\n        'access': str(refresh.access_token),\n    }",
         "detail": "core.authentication",
         "documentation": {}
     },
@@ -1076,7 +1341,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\nROOT_URLCONF = 'lec4.urls'",
+        "peekOfCode": "MIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'corsheaders.middleware.CorsMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1085,7 +1350,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "ROOT_URLCONF = 'lec4.urls'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\n            os.path.join(BASE_DIR, 'templates'),\n            os.path.join(BASE_DIR, 'templatetags')\n        ],",
+        "peekOfCode": "ROOT_URLCONF = 'lec4.urls'\nMEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nCORS_ORIGIN_ALLOW_ALL = False\nCORS_ALLOWED_ORIGINS = [\n    \"https://example.com\",\n    \"https://sub.example.com\",\n    \"http://localhost:8080\",\n    \"http://127.0.0.1:9000\",\n    \"http://127.0.0.1:3000\",",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1094,7 +1359,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\n            os.path.join(BASE_DIR, 'templates'),\n            os.path.join(BASE_DIR, 'templatetags')\n        ],\n        'APP_DIRS': True,",
+        "peekOfCode": "MEDIA_URL = '/media/'\nMEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nCORS_ORIGIN_ALLOW_ALL = False\nCORS_ALLOWED_ORIGINS = [\n    \"https://example.com\",\n    \"https://sub.example.com\",\n    \"http://localhost:8080\",\n    \"http://127.0.0.1:9000\",\n    \"http://127.0.0.1:3000\",\n    \"http://127.0.0.1:5173\",",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1103,7 +1368,25 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\n            os.path.join(BASE_DIR, 'templates'),\n            os.path.join(BASE_DIR, 'templatetags')\n        ],\n        'APP_DIRS': True,\n        'OPTIONS': {",
+        "peekOfCode": "MEDIA_ROOT = os.path.join(BASE_DIR, 'media')\nCORS_ORIGIN_ALLOW_ALL = False\nCORS_ALLOWED_ORIGINS = [\n    \"https://example.com\",\n    \"https://sub.example.com\",\n    \"http://localhost:8080\",\n    \"http://127.0.0.1:9000\",\n    \"http://127.0.0.1:3000\",\n    \"http://127.0.0.1:5173\",\n]",
+        "detail": "lec4.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ORIGIN_ALLOW_ALL",
+        "kind": 5,
+        "importPath": "lec4.settings",
+        "description": "lec4.settings",
+        "peekOfCode": "CORS_ORIGIN_ALLOW_ALL = False\nCORS_ALLOWED_ORIGINS = [\n    \"https://example.com\",\n    \"https://sub.example.com\",\n    \"http://localhost:8080\",\n    \"http://127.0.0.1:9000\",\n    \"http://127.0.0.1:3000\",\n    \"http://127.0.0.1:5173\",\n]\nTEMPLATES = [",
+        "detail": "lec4.settings",
+        "documentation": {}
+    },
+    {
+        "label": "CORS_ALLOWED_ORIGINS",
+        "kind": 5,
+        "importPath": "lec4.settings",
+        "description": "lec4.settings",
+        "peekOfCode": "CORS_ALLOWED_ORIGINS = [\n    \"https://example.com\",\n    \"https://sub.example.com\",\n    \"http://localhost:8080\",\n    \"http://127.0.0.1:9000\",\n    \"http://127.0.0.1:3000\",\n    \"http://127.0.0.1:5173\",\n]\nTEMPLATES = [\n    {",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1121,7 +1404,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'lec4.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'drf_blog',\n        'USER': 'postgres',\n        'PASSWORD': '123456',\n        'HOST': 'localhost',",
+        "peekOfCode": "WSGI_APPLICATION = 'lec4.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/5.1/ref/settings/#databases\nfrom decouple import config\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': config('DB_NAME'),\n        'USER': config('DB_USER'),\n        'PASSWORD': config('DB_PASSWORD'),",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1130,7 +1413,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': 'drf_blog',\n        'USER': 'postgres',\n        'PASSWORD': '123456',\n        'HOST': 'localhost',\n        'PORT': '5432',\n    }\n}",
+        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql',\n        'NAME': config('DB_NAME'),\n        'USER': config('DB_USER'),\n        'PASSWORD': config('DB_PASSWORD'),\n        'HOST': config('DB_HOST'),\n        'PORT': config('DB_PORT'),\n    }\n}",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1139,7 +1422,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "REST_FRAMEWORK = {\n    'DEFAULT_RENDERER_CLASSES': [\n        'rest_framework.renderers.JSONRenderer',\n        'rest_framework.renderers.BrowsableAPIRenderer',\n    ],\n    'DEFAULT_PERMISSION_CLASSES': [\n        'rest_framework.permissions.AllowAny',\n    ], \n    'DEFAULT_AUTHENTICATION_CLASSES': [\n        'rest_framework.authentication.SessionAuthentication',",
+        "peekOfCode": "REST_FRAMEWORK = {\n    # 'DEFAULT_PAGINATION_CLASS':\"rest_framework.pagination.PageNumberPagination\",\n    'DEFAULT_PAGINATION_CLASS':\"blog.pagination.BlogPagination\",\n    'PAGE_SIZE':1,\n    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],\n    'EXCEPTION_HANDLER': 'blog.exceptions.blog_exception_handler',\n    'DEFAULT_RENDERER_CLASSES': [\n        'rest_framework.renderers.JSONRenderer',\n        'rest_framework.renderers.BrowsableAPIRenderer',\n    ],",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1148,7 +1431,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "SIMPLE_JWT = {\n    \"ACCESS_TOKEN_LIFETIME\": timedelta(minutes=5),\n    \"REFRESH_TOKEN_LIFETIME\": timedelta(days=1),\n    \"ROTATE_REFRESH_TOKENS\": True, #after refresh - get a new refresh token\n    \"BLACKLIST_AFTER_ROTATION\": True, #cancel old refresh tokens\n}\nTAGGIT_CASE_INSENSITIVE = True\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [",
+        "peekOfCode": "SIMPLE_JWT = {\n    \"ACCESS_TOKEN_LIFETIME\": timedelta(minutes=5),\n    \"REFRESH_TOKEN_LIFETIME\": timedelta(days=1),\n    \"ROTATE_REFRESH_TOKENS\": True, #after refresh - get a new refresh token\n    \"BLACKLIST_AFTER_ROTATION\": True, #cancel old refresh tokens\n    \"TOKEN_OBTAIN_SERIALIZER\": \"blog.serializers.BlogTokenObtainPairSerializer\",\n}\nTAGGIT_CASE_INSENSITIVE = True\n# Password validation\n# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1184,7 +1467,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "TIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n#  pip freeze > requirements.txt",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1193,7 +1476,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_I18N = True\nUSE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n#  pip freeze > requirements.txt",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1202,7 +1485,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "USE_TZ = True\n# Static files (CSS, JavaScript, Images)\n# https://docs.djangoproject.com/en/5.1/howto/static-files/\nSTATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n#  pip freeze > requirements.txt",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1211,7 +1494,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "STATIC_URL = 'static/'\n# Default primary key field type\n# https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n#  pip freeze > requirements.txt",
         "detail": "lec4.settings",
         "documentation": {}
     },
@@ -1220,7 +1503,7 @@
         "kind": 5,
         "importPath": "lec4.settings",
         "description": "lec4.settings",
-        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'",
+        "peekOfCode": "DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\n#  pip freeze > requirements.txt",
         "detail": "lec4.settings",
         "documentation": {}
     },

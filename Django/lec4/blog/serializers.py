@@ -7,6 +7,20 @@ from rest_framework.serializers import HiddenField, SerializerMethodField
 from rest_framework.serializers import ModelSerializer
 from django.contrib.auth.models import User
 from rest_framework.serializers import ValidationError
+
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+
+class BlogTokenObtainPairSerializer(TokenObtainPairSerializer):
+    @classmethod
+    def get_token(cls, user):
+        token = super().get_token(user)
+
+        # Add custom claims
+        token['name'] = user.username
+        token['isadmin'] = user.is_superuser
+
+        return token
+
 class UserSerializer(ModelSerializer):
     class Meta:
         model = User

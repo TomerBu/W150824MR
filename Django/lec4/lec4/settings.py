@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework.authtoken',
     'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
+    'django_filters',
     'taggit',
     'hw',
     'blog.apps.BlogConfig',
@@ -51,6 +53,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -64,6 +67,16 @@ ROOT_URLCONF = 'lec4.urls'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+CORS_ORIGIN_ALLOW_ALL = False
+
+CORS_ALLOWED_ORIGINS = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:8080",
+    "http://127.0.0.1:9000",
+    "http://127.0.0.1:3000",
+    "http://127.0.0.1:5173",
+]
 
 TEMPLATES = [
     {
@@ -90,18 +103,29 @@ WSGI_APPLICATION = 'lec4.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+from decouple import config
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'drf_blog',
-        'USER': 'postgres',
-        'PASSWORD': '123456',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
 
 REST_FRAMEWORK = {
+    # 'DEFAULT_PAGINATION_CLASS':"rest_framework.pagination.PageNumberPagination",
+    'DEFAULT_PAGINATION_CLASS':"blog.pagination.BlogPagination",
+    'PAGE_SIZE':1,
+
+
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+
+    'EXCEPTION_HANDLER': 'blog.exceptions.blog_exception_handler',
+
+
     'DEFAULT_RENDERER_CLASSES': [
         'rest_framework.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',
@@ -116,6 +140,29 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication', 
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ], 
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '10/min',
+        'user': '1000/day', 
+
+        'create_post_user': '5/minute',  
+        'create_post_anon': '1/minute',  
+
+        'list_posts_user': '5/minute',  
+        'list_posts_anon': '1/minute', 
+
+        'retrieve_post_user': '5/minute',  
+        'retrieve_post_anon': '1/minute', 
+
+        'update_post_user': '5/minute',  
+        'update_post_anon': '1/minute',  
+
+        'delete_post_user': '5/minute',  
+        'delete_post_anon': '1/minute',
+    }
 }
 
 from datetime import timedelta
@@ -126,6 +173,7 @@ SIMPLE_JWT = {
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
     "ROTATE_REFRESH_TOKENS": True, #after refresh - get a new refresh token
     "BLACKLIST_AFTER_ROTATION": True, #cancel old refresh tokens
+    "TOKEN_OBTAIN_SERIALIZER": "blog.serializers.BlogTokenObtainPairSerializer",
 }
 
 TAGGIT_CASE_INSENSITIVE = True
@@ -174,4 +222,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
- 
+#  pip freeze > requirements.txt
